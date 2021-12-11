@@ -6,14 +6,25 @@
 </head>
 <body>
 <h1>View your hero's!</h1>
-<div class="heros">
+<div class="col-md-6 heros">
     {{#each heros}}
+        <p>Id: {{id}}</p>
         <p>Name: {{name}}</p>
         <p>Age: {{age}}</p>
         <p>SuperPower: {{power}}</p>
         <p><em>Weakness: </em>{{weakness}}</p>
     {{/each}}
 </div>
+{{#if heros}}
+    <div class="col-md-6">
+        <h1>Create a hero squad of up to 4 hero's!</h1>
+        <form>
+            <label for="selection">Selection:</label>
+            <input type="text" class="form-control" id="selection" name="selection" />
+            <button type="submit" class="btn btn-outline-success">Create</button>
+        </form>
+    </div>
+{{/if}}
 <p><a href="/">Click here </a>to go back to the home page.</p>
 <p><a href="/post">Click here </a>to go back and create another hero!</p>
 </body>
