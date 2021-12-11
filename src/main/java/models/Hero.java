@@ -44,4 +44,8 @@ public class Hero {
     public static ArrayList<Hero> getAll() {
         return instances;
     }
+
+    public Hero getById(int id) {
+        return instances.get(id - 1);
+    }
 }
