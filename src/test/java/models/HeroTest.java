@@ -11,4 +11,6 @@ class HeroTest {
         Hero hero = new Hero("john", 23, "super strength", "water");
         assertTrue(hero instanceof  Hero);
     }
+
+
 }
