@@ -6,10 +6,15 @@
 </head>
 <body>
 <h1>View your hero's!</h1>
-<p>Name: {{hero.getName}}</p>
-<p>Age: {{hero.getAge}}</p>
-<p>SuperPower: {{hero.getPower}}</p>
-<p><em>Weakness: </em>{{hero.getWeakness}}</p>
-
+<div class="heros">
+    {{#each heros}}
+        <p>Name: {{name}}</p>
+        <p>Age: {{age}}</p>
+        <p>SuperPower: {{power}}</p>
+        <p><em>Weakness: </em>{{weakness}}</p>
+    {{/each}}
+</div>
+<p><a href="/">Click here </a>to go back to the home page.</p>
+<p><a href="/post">Click here </a>to go back and create another hero!</p>
 </body>
 </html>

@@ -28,8 +28,13 @@ public class App {
             String superpower = request.queryParams("superpower");
             String weakness = request.queryParams("weakness");
             Hero hero = new Hero(name, age, superpower, weakness);
-            model.put("hero", hero);
+            model.put("heros", Hero.getAll());
             return new ModelAndView(model, "hero-view.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/post", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
