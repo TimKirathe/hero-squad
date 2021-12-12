@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>View your hero's!</h1>
-<div class="col-md-6 heros">
+<div class="col-md-10 heros">
     {{#each heros}}
         <p>Id: {{id}}</p>
         <p>Name: {{name}}</p>
@@ -16,15 +16,38 @@
     {{/each}}
 </div>
 {{#if heros}}
-    <div class="col-md-6">
-        <h1>Create a hero squad of up to 4 hero's!</h1>
-        <form>
-            <label for="selection">Selection:</label>
-            <input type="text" class="form-control" id="selection" name="selection" />
+    <div class="col-md-10">
+        <h1>Create a hero squad consisting of 4 hero's!</h1>
+        <form action="/posts/team" method="post">
+            <div class="form-group">
+                <label for="teamName">Enter the name of your team:</label>
+                <input type="text" class="form-control" id="teamName" name="teamName" />
+            </div>
+            <div class="form-group">
+                <label for="cause">Cause dedicated to fighting:</label>
+                <input type="text" class="form-control" id="cause" name="cause" />
+            </div>
+            <div class="form-group">
+                <label for="hero1">Hero 1(id):</label>
+                <input type="text" class="form-control" id="hero1" name="hero1" required />
+            </div>
+            <div class="form-group">
+                <label for="hero2">Hero 2(id):</label>
+                <input type="text" class="form-control" id="hero2" name="hero2" required/>
+            </div>
+            <div class="form-group">
+                <label for="hero3">Hero 3(id):</label>
+                <input type="text" class="form-control" id="hero3" name="hero3" required/>
+            </div>
+            <div class="form-group">
+                <label for="hero4">Hero 4(id):</label>
+                <input type="text" class="form-control" id="hero4" name="hero4" required/>
+            </div>
             <button type="submit" class="btn btn-outline-success">Create</button>
         </form>
     </div>
 {{/if}}
+
 <p><a href="/">Click here </a>to go back to the home page.</p>
 <p><a href="/post">Click here </a>to go back and create another hero!</p>
 </body>

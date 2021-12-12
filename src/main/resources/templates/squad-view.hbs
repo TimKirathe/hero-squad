@@ -6,5 +6,15 @@
 </head>
 <body>
     <h1>View your teams!</h1>
+    {{#each teams}}
+        <p>{{name}}</p>
+        <p>{{cause}}</p>
+        <p>Hero's:</p>
+        {{#each chosenHeros}}
+            <p>{{name}}</p>
+        {{/each}}
+    {{/each}}
+    <p><a href="/"></a></p>
+
 </body>
 </html>

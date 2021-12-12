@@ -45,7 +45,7 @@ public class Hero {
         return instances;
     }
 
-    public Hero getById(int id) {
+    public static Hero getById(int id) {
         return instances.get(id - 1);
     }
 }
