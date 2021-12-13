@@ -51,10 +51,17 @@ public class App {
             Hero hero3 = Hero.getById(heroId3);
             Hero hero4 = Hero.getById(heroId4);
             ArrayList<Hero> chosenHeros = new ArrayList<>();
-            chosenHeros.add(hero1);
-            chosenHeros.add(hero2);
-            chosenHeros.add(hero3);
-            chosenHeros.add(hero4);
+            for (int i = 0; i<chosenHeros.size(); i++) {
+                if (chosenHeros.contains(chosenHeros.indexOf(i))) {
+                    System.out.println("Error that hero is already assigned to a team.");
+                }
+                else{
+                    chosenHeros.add(hero1);
+                    chosenHeros.add(hero2);
+                    chosenHeros.add(hero3);
+                    chosenHeros.add(hero4);
+                }
+            }
             Team team = new Team(name, cause, hero1, hero2, hero3, hero4);
             ArrayList<Team> teams = new ArrayList<>();
             teams.add(team);
