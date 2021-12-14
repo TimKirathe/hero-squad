@@ -56,7 +56,7 @@ public class App {
             chosenHeros.add(hero3);
             chosenHeros.add(hero4);
             for (int i = 0; i<chosenHeros.size(); i++) {
-                if (chosenHeros.contains(chosenHeros.indexOf(i))) {
+                if (chosenHeros.contains(chosenHeros.indexOf(chosenHeros.get(i)))) {
                     get("/posts/error", (request1, response1) -> {
                         Map<String, Object> model1 = new HashMap<>();
                         return new ModelAndView(model1, "error.hbs");

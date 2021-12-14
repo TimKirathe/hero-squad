@@ -36,8 +36,29 @@ font-size: 1.5rem;
 
 div {
 display: flex;
+flex: 0 0 210px;
+width: 100%;
 justify-content: center;
+gap: 1.3rem;
+font-size: 1.5rem;
 }
+
+.supermanFig {
+    width: 210px;
+}
+
+.post-link {
+    text-align: center;
+    font-size: 2rem;
+    margin-top 2rem;
+}
+
+a {
+text-decoration: none;
+}
+
+
+
 
     </style>
 
@@ -49,13 +70,42 @@ justify-content: center;
 <hr>
 <div>
     <figure>
-        <img src="https://i.postimg.cc/DZhLKT8x/flash.png" alt="flash" height="200" width="200" />
-        <figcaption></figcaption>
+        <img src="https://i.postimg.cc/DZhLKT8x/flash.png" alt="flash" height="250" width="250" />
+        <figcaption>
+            <p>Name: The Flash</p>
+            <p>Age: 24</p>
+            <p>Superpower: Super Speed.</p>
+            <p>Weakness: Cold temperatures.</p>
+        </figcaption>
     </figure>
-    <img src="https://i.postimg.cc/ZKvRjQqn/invincible.jpg" alt="invincible" height="200" width="200" />
-    <img src="https://i.postimg.cc/hGsPfW2y/ironman.jpg" alt="ironman" height="200" width="200" />
-    <img src="https://i.postimg.cc/25kCp9C4/superman.jpg" alt="superman" height="200" width="200" />
+    <figure>
+        <img src="https://i.postimg.cc/ZKvRjQqn/invincible.jpg" alt="invincible" height="250" width="250" />
+        <figcaption>
+            <p>Name: Invincible</p>
+            <p>Age: 16</p>
+            <p>Superpower: Super Strength, Invincible.</p>
+            <p>Weakness: Extreme Cold.</p>
+        </figcaption>
+    </figure>
+    <figure>
+        <img src="https://i.postimg.cc/hGsPfW2y/ironman.jpg" alt="ironman" height="250" width="250" />
+        <figcaption>
+            <p>Name: Iron Man</p>
+            <p>Age: 40</p>
+            <p>Superpower: Ultra powerful suits.</p>
+            <p>Weakness: Loss of his suits.</p>
+        </figcaption>
+    </figure>
+    <figure class="supermanFig">
+        <img src="https://i.postimg.cc/25kCp9C4/superman.jpg" alt="superman" height="250" width="250" />
+        <figcaption>
+            <p>Name: Superman</p>
+            <p>Age: 32</p>
+            <p>Superpower: Super Strength, Super Speed, Heat Vision, Ice Breath, Indestructible.</p>
+            <p>Weakness: Kryptonite.</p>
+        </figcaption>
+    </figure>
 </div>
-<p><a href="/post">Click here</a> to create your own hero.</p>
+<p class="post-link"><a href="/post">Click here</a> to create your own hero.</p>
 </body>
 </html>
