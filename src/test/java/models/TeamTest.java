@@ -13,6 +13,6 @@ class TeamTest {
         Hero hero3 = new Hero("rodgers", 13, "Control the weather", "Outer space");
         Hero hero4 = new Hero("Sean", 45, "Heat vision", "extreme heat");
         Team team = new Team("Supa Strikers", "Villains", hero1, hero2, hero3, hero4);
-        assertTrue(team.getTeam().size() == 4);
+        assertTrue(team instanceof Team);
     }
 }
