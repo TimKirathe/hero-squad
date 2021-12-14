@@ -1,28 +1,27 @@
 package models;
 
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Team {
-    private List<Hero> team = Arrays.asList(new Hero[4]);
     private String name;
     private String cause;
     private static ArrayList<Team> instances = new ArrayList<>();
+    private static ArrayList<Integer> chosenHerosIds = new ArrayList<>();
+    private ArrayList<Hero> chosenHeros = new ArrayList<>();
 
     public Team(String name, String cause, Hero hero1, Hero hero2, Hero hero3, Hero hero4) {
         this.name = name;
         this.cause = cause;
-        team.set(0, hero1);
-        team.set(1, hero2);
-        team.set(2, hero3);
-        team.set(3, hero4);
+        chosenHerosIds.add(hero1.getId());
+        chosenHerosIds.add(hero2.getId());
+        chosenHerosIds.add(hero3.getId());
+        chosenHerosIds.add(hero4.getId());
+        this.chosenHeros.add(hero1);
+        this.chosenHeros.add(hero2);
+        this.chosenHeros.add(hero3);
+        this.chosenHeros.add(hero4);
         instances.add(this);
-    }
-
-    public List<Hero> getTeam() {
-        return team;
     }
 
     public String getName() {
@@ -33,8 +32,15 @@ public class Team {
         return cause;
     }
 
-    public static ArrayList<Team> getInstances() {
+    public static ArrayList<Team> getAll() {
         return instances;
     }
 
+    public static ArrayList<Integer> getChosenHerosIds() {  // Used to set the max size of the team.
+        return chosenHerosIds;
+    }
+
+    public ArrayList<Hero> getChosenHeros() {
+        return chosenHeros;
+    }
 }

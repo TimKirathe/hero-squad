@@ -1,10 +1,6 @@
 import static spark.Spark.*;
-import java.util.ArrayList;
-import java.util.List;
 
-import java.util.HashMap;
-
-import java.util.Map;
+import java.util.*;
 
 import models.Team;
 import spark.ModelAndView;
@@ -38,6 +34,11 @@ public class App {
             return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/posts/team", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "squad-view.hbs");
+        }, new HandlebarsTemplateEngine());
+
         post("/posts/team", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("teamName");
@@ -46,30 +47,21 @@ public class App {
             Integer heroId2 = Integer.parseInt(request.queryParams("hero2"));
             Integer heroId3 = Integer.parseInt(request.queryParams("hero3"));
             Integer heroId4 = Integer.parseInt(request.queryParams("hero4"));
-            Hero hero1 = Hero.getById(heroId1);
-            Hero hero2 = Hero.getById(heroId2);
-            Hero hero3 = Hero.getById(heroId3);
-            Hero hero4 = Hero.getById(heroId4);
-            ArrayList<Hero> chosenHeros = new ArrayList<>();
-            chosenHeros.add(hero1);
-            chosenHeros.add(hero2);
-            chosenHeros.add(hero3);
-            chosenHeros.add(hero4);
-            for (int i = 0; i<chosenHeros.size(); i++) {
-                if (chosenHeros.contains(chosenHeros.indexOf(chosenHeros.get(i)))) {
+            Team team = new Team(name, cause, Hero.getById(heroId1), Hero.getById(heroId2), Hero.getById(heroId3), Hero.getById(heroId4));
+            ArrayList<Integer> chosenIds = Team.getChosenHerosIds();
+            for(int i = 0; i< chosenIds.size(); i++) {
+                if(Integer.parseInt(request.queryParams("hero1")) == chosenIds.get(i) || Integer.parseInt(request.queryParams("hero2")) == chosenIds.get(i) || Integer.parseInt(request.queryParams("hero3")) == chosenIds.get(i) || Integer.parseInt(request.queryParams("hero4")) == chosenIds.get(i)) {
                     get("/posts/error", (request1, response1) -> {
-                        Map<String, Object> model1 = new HashMap<>();
-                        return new ModelAndView(model1, "error.hbs");
+                        Map<String, Object> model2 = new HashMap<>();
+                        return new ModelAndView(model2, "error.hbs");
                     }, new HandlebarsTemplateEngine());
                 }
-
             }
-            Team team = new Team(name, cause, hero1, hero2, hero3, hero4);
-            ArrayList<Team> teams = new ArrayList<>();
-            teams.add(team);
-            model.put("teams", teams);
-            model.put("chosenHeros", chosenHeros);
+            model.put("teams", Team.getAll());
+            model.put("chosenHeros", team.getChosenHeros());
             return new ModelAndView(model, "squad-view.hbs");
         }, new HandlebarsTemplateEngine());
+
+
     }
 }
